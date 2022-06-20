@@ -45,8 +45,14 @@ load_model()
 
 while True :
     record.start()
+    print("#"*20)
+    print("Start Recording..")
     time.sleep(4)
     record.stop()
+    print("Stop Recording..")
+    print("#"*20)
+
+    s_time = time.time()
     test_files = glob('test.wav')
 
     batches = split_into_batches(test_files, batch_size=10)
@@ -54,5 +60,6 @@ while True :
                                 device=device)
 
     output = model(input)
+    print("Inference Time : ", time.time()-s_time)
     for example in output:
         print(decoder(example.cpu()))

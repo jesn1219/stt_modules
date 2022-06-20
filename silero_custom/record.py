@@ -23,7 +23,6 @@ def start():
     global recording
     recording = True
     recorder = threading.Thread(target=complicated_record)
-    print('start recording')
     recorder.start()
     
 def stop():
@@ -31,7 +30,6 @@ def stop():
     global recording
     recording = False
     recorder.join()
-    print('stop recording')
 
 
 if __name__ == "__main__" :
