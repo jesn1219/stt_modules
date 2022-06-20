@@ -21,14 +21,14 @@ utils_ob = None
 
 def save_model() :
     global model, decoder, utils_ob
-    model.save("./models/model")
+    model.save("./models/model.pk")
     torch.save(decoder,"./models/decoder")
     torch.save(utils_ob,'./models/utils')
 
 
 def load_model() :
     global model, decoder, utils_ob
-    model = torch.jit.load("./models/model")
+    model = torch.jit.load("./models/model.pk")
     decoder = torch.load("./models/decoder")
     utils_ob = torch.load("./models/utils")    
 
